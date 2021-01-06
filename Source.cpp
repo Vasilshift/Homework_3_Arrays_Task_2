@@ -1,13 +1,15 @@
 #include <iostream>
+#include<array>
 using namespace std;
 
 int main(){
 
-	int p, i, j;
-	int array[12];
+	int i, j;
+	const int n = 12;
+	int array[n];
 	cout << "Please, enter the values of each month for 12 months: " << endl;
-	
-	for (i = 1; i <= 12; i++) {
+
+	for (int i = 0; i < n; i++) {
 
 	cin >> array[i];
 	
@@ -24,13 +26,13 @@ int main(){
 	int min = array[startRange];
 	int max = array[endRange];
 
-	for (i = startRange; i <= endRange; i++) {
+	for (i = startRange - 1; i <= endRange - 1; i++) {
 
-		if (array[i] > max)
+		if (array[i] > array[i + 1])
 		{
 			max = array[i];
 		}
-		if (array[i] < min)
+		if (array[i] < array[i + 1])
 		{
 			min = array[i];
 		}
@@ -39,6 +41,6 @@ int main(){
 	
 	cout << endl << "MIN salary from range= " << min << "\t" << "MAX salary from range= " << max << endl << endl;
 
-	system("pause");
+
 	return 0;
 }
